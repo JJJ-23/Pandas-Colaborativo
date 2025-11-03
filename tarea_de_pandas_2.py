@@ -425,3 +425,16 @@ Usando el DataFrame `datos_estudiantes`:
 4.  Crea una nueva columna llamada 'Inicial_Nombre' que contenga la primera letra del nombre de cada estudiante. Usa `apply()` o `map()`. Muestra el DataFrame.
 5.  Usando `map()`, crea una nueva columna 'Nivel_Promedio' que categorice el promedio en 'Alto' (>= 8.5), 'Medio' (>= 7.5 y < 8.5) o 'Bajo' (< 7.5). Muestra el DataFrame con la nueva columna.
 """
+#Ejercicio 1
+df_sin_edad = datos_estudiantes.drop(labels=["Edad"], axis = 1)
+display(df_sin_edad)
+
+#Ejercicio 2
+display(datos_estudiantes.drop(labels=[5,9], axis = 0))
+
+#Ejercicio 3
+def sumar_un_medio(promedio):
+    return promedio + 0.5
+
+datos_estudiantes["Promedio ajustado"] = datos_estudiantes["Promedio"].map(sumar_un_medio)
+display(datos_estudiantes)
